@@ -33,7 +33,7 @@ echo 'rust src:'$RUST_SRC_PATH
 
 echo 'compiling ycm'
 cd $VHOME/bundle/vundle/YouCompleteMe/
-./install.py  --racer-completer  --clang-completer --system-libclang
+./install.py  --racer-completer  --clang-completer --system-libclang --go-completer
 
 dvim -u $HCONF/vimrc +GoInstallBinaries +qall
 
