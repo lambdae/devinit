@@ -3,9 +3,10 @@
 VHOME=/opt/local/dconf
 HCONF=/opt/local/dconf
 HVIM=/opt/local/vim
+VIMRC=https://gist.githubusercontent.com/lambdae/adb298f16f55f6ab169bb9e42c36c344/raw/383e8a4917d27f263dad4e5af8e94ffd25ef5a39/vimrc
 
 echo 'downloading vimrc'
-curl https://gist.githubusercontent.com/lambdae/adb298f16f55f6ab169bb9e42c36c344/raw/88f076889fe213b54c042da19d87c14e24bd5889/vimrc > vimrc
+curl $VIMRC > vimrc
 echo 'installing vundle'
 git clone https://github.com/gmarik/vundle.git $VHOME/bundle/vundle
 
@@ -33,6 +34,8 @@ echo 'rust src:'$RUST_SRC_PATH
 echo 'compiling ycm'
 cd $VHOME/bundle/vundle/YouCompleteMe/
 ./install.py  --racer-completer  --clang-completer --system-libclang
+
+dvim -u $HCONF/vimrc +GoInstallBinaries +qall
 
 
 
