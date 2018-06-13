@@ -1,11 +1,13 @@
 #!/bin/bash
 
 
-CUSTOM_DIR=/opt/local
+mkdir -p $HOME/.local
+
+CUSTOM_DIR=$HOME/.local
 VHOME=$CUSTOM_DIR/dconf
 HCONF=$CUSTOM_DIR/dconf
 HVIM=$CUSTOM_DIR/vim
-VIMRC=https://gist.githubusercontent.com/lambdae/adb298f16f55f6ab169bb9e42c36c344/raw/89d2f6f30be3bcd8bc0c163ee5331480bb08b0af/vimrc
+VIMRC=https://gist.githubusercontent.com/lambdae/adb298f16f55f6ab169bb9e42c36c344/raw/6472251c7f63defdafd88d9dd07ff34bdbde3409/vimrc
 GOBIN=go1.10.linux-amd64.tar.gz
 GOURL=https://studygolang.com/dl/golang/$GOBIN
 GOHOME=$CUSTOM_DIR/go
