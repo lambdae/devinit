@@ -44,6 +44,7 @@ function init_vim() {
 function install_rust() {
     echo 'installing rustup'
     curl https://sh.rustup.rs -sSf | sh
+    source $HOME/.cargo/env
     RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
     echo 'rust src:'$RUST_SRC_PATH
 }
