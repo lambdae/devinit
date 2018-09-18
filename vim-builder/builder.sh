@@ -1,6 +1,8 @@
 #!/bin/bash
 
-VHOME=/opt/local
+
+VHOME=$HOME/.local
+mkdir -p $VHOME
 HNCURSES=$VHOME/ncurses
 HVIM=$VHOME/vim
 HCONF=$VHOME/dconf
