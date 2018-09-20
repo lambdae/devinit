@@ -7,7 +7,7 @@ CUSTOM_DIR=$HOME/.local
 VHOME=$CUSTOM_DIR/dconf
 HCONF=$CUSTOM_DIR/dconf
 HVIM=$CUSTOM_DIR/vim
-VIMRC=https://gist.githubusercontent.com/lambdae/adb298f16f55f6ab169bb9e42c36c344/raw/f202690a0a149462111a9098d6e499472222673a/vimrc
+VIMRC=https://gist.githubusercontent.com/lambdae/adb298f16f55f6ab169bb9e42c36c344/raw
 GOBIN=go1.10.linux-amd64.tar.gz
 GOURL=https://studygolang.com/dl/golang/$GOBIN
 GOHOME=$CUSTOM_DIR/go
@@ -20,7 +20,7 @@ mkdir -p $CUSTOM_DIR
 
 function init_vim() {
     echo 'downloading vimrc'
-    curl $VIMRC > vimrc
+    curl $VIMRC -o vimrc
     echo 'installing vundle'
     git clone https://github.com/gmarik/vundle.git $VHOME/bundle/vundle
 
