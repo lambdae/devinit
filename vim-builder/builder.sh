@@ -1,17 +1,19 @@
 #!/bin/bash
 
 
-VHOME=$HOME/.local
+VHOME=$HOME/opt
 mkdir -p $VHOME
 HNCURSES=$VHOME/ncurses
 HVIM=$VHOME/vim
 HCONF=$VHOME/dconf
+
 NCURSE_URL=http://dconf.oss-cn-beijing.aliyuncs.com/ncurses-5.8.tar.gz
 VIM_URL=http://dconf.oss-cn-beijing.aliyuncs.com/vim-8.0.tar.bz2
 
 
 function build_ncurse() {
     wget $NCURSE_URL
+    export CPPFLAGS="-P"
     tar xvzf ncurses-5.8.tar.gz
     cd ncurses-5.8
 
@@ -19,6 +21,7 @@ function build_ncurse() {
     make
     make install
     cd ..
+    unset CPPFLAGS
 }
 
 
@@ -26,7 +29,7 @@ function build_vim() {
     wget $VIM_URL
     tar xvjf vim-8.0.tar.bz2
     cd vim80
-    export LDFLAGS="-L$HNCURSES/lib"
+    export LDFLAGS="-L$HNCURSES/lib -L$GHOME/usr/lib64"
     make distclean
     ./configure --enable-gui=no --without-x -with-features=huge \
         --prefix=$HVIM --with-tlib=ncurses \
