@@ -7,7 +7,9 @@ HNCURSES=$VHOME/ncurses
 HVIM=$VHOME/vim
 HCONF=$VHOME/dconf
 # yum install python-devel -y
-PYCONFIG=/usr/lib/python2.7/config
+PYCONFIG=/home/ydlme/gcc5.2.0/python/usr/lib64/python2.7/config
+PYHEADER=/home/ydlme/gcc5.2.0/python/usr/include/python2.7
+
 
 NCURSE_URL=http://dconf.oss-cn-beijing.aliyuncs.com/ncurses-5.8.tar.gz
 VIM_URL=http://dconf.oss-cn-beijing.aliyuncs.com/vim-8.0.tar.bz2
@@ -32,6 +34,8 @@ function build_vim() {
     tar xvjf vim-8.0.tar.bz2
     cd vim80
     export LDFLAGS="-L$HNCURSES/lib -L$GHOME/usr/lib64"
+    # export CC=$CC' -I/home/ydlme/gcc5.2.0/python/usr/include/python2.7'
+    export CC=$CC' -I'$PYHEADER
     make distclean
     ./configure --enable-gui=no --without-x -with-features=huge \
         --prefix=$HVIM --with-tlib=ncurses \
