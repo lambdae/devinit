@@ -6,6 +6,8 @@ mkdir -p $VHOME
 HNCURSES=$VHOME/ncurses
 HVIM=$VHOME/vim
 HCONF=$VHOME/dconf
+# yum install python-devel -y
+PYCONFIG=/usr/lib/python2.7/config
 
 NCURSE_URL=http://dconf.oss-cn-beijing.aliyuncs.com/ncurses-5.8.tar.gz
 VIM_URL=http://dconf.oss-cn-beijing.aliyuncs.com/vim-8.0.tar.bz2
@@ -33,7 +35,8 @@ function build_vim() {
     make distclean
     ./configure --enable-gui=no --without-x -with-features=huge \
         --prefix=$HVIM --with-tlib=ncurses \
-        --enable-pythoninterp
+        --enable-pythoninterp=yes \
+	--with-python-config-dir=$PYCONFIG
     make
     make install
     cp $HVIM/bin/vim $HVIM/bin/dvim
