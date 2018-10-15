@@ -21,7 +21,7 @@ function build_ncurse() {
     tar xvzf ncurses-5.8.tar.gz
     cd ncurses-5.8
 
-    ./configure --prefix=$HNCURSES
+    ./configure --prefix=$HNCURSES --with-shared
     make
     make install
     cd ..
